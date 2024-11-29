@@ -1,0 +1,25 @@
+---
+const { label, type = "text", name, id, value, onInput, error, placeholder } = Astro.props;
+---
+
+<div class="mb-4">
+  <!-- Label -->
+  <label for={id} class="block text-sm font-medium text-blue-900 mb-2">
+    {label}
+  </label>
+
+  <!-- Input -->
+  <input
+    type={type}
+    name={name}
+    id={id}
+    value={value}
+    oninput={onInput}
+    placeholder={placeholder}
+    class={`w-full px-4 py-2 text-lg border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+            ${error ? "border-red-500" : "border-blue-300"}`}
+  />
+
+  <!-- Error message -->
+  {error && <p class="mt-2 text-sm text-red-500">{error}</p>}
+</div>

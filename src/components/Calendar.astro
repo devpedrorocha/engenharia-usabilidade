@@ -1,0 +1,45 @@
+---
+// src/components/Calendar.astro
+const { highlightedDates = [] } = Astro.props;
+
+// November 2024 Calendar Details
+const month = "Novembro";
+const year = 2024;
+const daysInMonth = 30;
+const firstDayOfWeek = new Date(year, 10, 1).getDay(); // 10 = November (0-indexed)
+
+// Generate an array of dates for the calendar
+const calendarDays = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+// Generate empty cells for the first row based on the first day of the month
+const leadingEmptyCells = Array.from({ length: firstDayOfWeek }, () => null);
+const allDays = [...leadingEmptyCells, ...calendarDays];
+---
+
+<div class="mx-auto p-6 bg-white rounded-lg border">
+  <h2 class="text-xl font-bold text-blue-700 mb-4 text-center">
+    {month}
+    {year}
+  </h2>
+  <div class="grid grid-cols-7 gap-2 text-center text-sm">
+    <!-- Weekday Headers -->
+    {
+      ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"].map((day) => (
+        <div class="font-semibold text-blue-600">{day}</div>
+      ))
+    }
+
+    <!-- Days of the Month -->
+    {
+      allDays.map((day, index) => (
+        <div
+          class={`h-10 flex items-center justify-center rounded-md 
+          ${day === null ? "" : "border border-blue-200"} 
+          ${highlightedDates.includes(day) ? "bg-blue-500 text-white" : ""}`}
+        >
+          {day ?? ""}
+        </div>
+      ))
+    }
+  </div>
+</div>

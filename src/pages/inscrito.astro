@@ -1,0 +1,110 @@
+---
+import Button from "../components/Button.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Layout from "../layouts/Layout.astro";
+
+const defaultMessage = "Formulário enviado com sucesso!";
+---
+
+<Layout title="Sucesso">
+  <div class="flex h-screen bg-white">
+    <Sidebar />
+    <div class="w-full flex flex-col bg-white shadow-lg rounded-lg">
+      <div class="flex flex-col">
+        <div class="py-4 px-6 border-b">
+          <h1 class="text-4xl font-semibold text-blue-600">Inscrição</h1>
+        </div>
+        <div class="py-4 px-6 border-b">
+          <h2 class="text-3xl font-semibold text-slate-700">
+            Seminário UFSC 2024.2 - Blockchain e suas aplicabilidades
+          </h2>
+        </div>
+      </div>
+      <div
+        class="flex bg-white h-screen w-full flex-col items-center justify-center text-center gap-8"
+      >
+        <div class="flex justify-center items-center flex-col gap-4">
+          <div class="checkmark-container">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+            </svg>
+          </div>
+          <h1 class="text-2xl font-bold text-blue-600">Você está inscrito no evento!</h1>
+          <p class="font-medium text-slate-700">
+            Fique de olho no cronograma das suas atividades, mais instruções serão enviadas ao seu
+            e-mail.
+          </p>
+        </div>
+
+        <a class="w-[300px]" href="/">
+          <Button class="">Voltar</Button>
+        </a>
+      </div>
+    </div>
+
+    <style>
+      /* Checkmark Container */
+      .checkmark-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 128px;
+        height: 128px;
+        background-color: #4caf50;
+        border-radius: 50%;
+        position: relative;
+        animation: pop 0.4s ease-in-out;
+      }
+
+      /* Checkmark SVG */
+      .checkmark {
+        width: 120px;
+        height: 120px;
+        display: block;
+        stroke-width: 2;
+        stroke: white;
+        stroke-miterlimit: 10;
+        margin: 10% auto;
+        box-shadow: inset 0px 0px 0px #4caf50;
+        animation:
+          fill 0.4s ease-in-out 0.4s forwards,
+          scale 0.3s ease-in-out 0.9s both;
+      }
+
+      .checkmark__check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+      }
+
+      /* Animations */
+      @keyframes pop {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes stroke {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes scale {
+        0%,
+        100% {
+          transform: none;
+        }
+        50% {
+          transform: scale3d(1.1, 1.1, 1);
+        }
+      }
+    </style>
+  </div>
+</Layout>

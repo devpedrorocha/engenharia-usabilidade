@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+const currentUrl = new URL(Astro.request.url);
+---
+
+<div class="w-64 bg-white text-slate-700 h-full">
+  <div class="bg-blue-500">
+    <h1 class="text-2xl font-bold mb-8 p-4 text-white">Even3</h1>
+  </div>
+  <ul>
+    <li>
+      <a
+        href="/"
+        class={`block py-4 px-4 font-bold ${currentUrl.pathname === "/" ? "bg-blue-500 text-white" : "hover:bg-blue-200"}`}
+      >
+        <div class="flex flex-row gap-2 items-center">
+          <Icon class="size-6" name="info" />
+          <span class="text-xl">Sobre</span>
+        </div>
+      </a>
+      <li>
+        <a
+          href="/inscricao"
+          class={`block py-4 px-4 font-bold ${currentUrl.pathname === "/inscricao" ? "bg-blue-500 text-white" : "hover:bg-blue-200"}`}
+        >
+          <div class="flex flex-row gap-2 items-center">
+            <Icon class="size-6" name="inscricao" />
+            <span class="text-xl">Inscrição</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/submissao"
+          class={`block py-4 px-4 font-bold ${currentUrl.pathname === "/submissao" ? "bg-blue-500 text-white" : "hover:bg-blue-200"}`}
+        >
+          <div class="flex flex-row gap-2 items-center">
+            <Icon class="size-6" name="submissao" />
+            <span class="text-xl">Submissão</span>
+          </div>
+        </a>
+      </li>
+    </li>
+  </ul>
+</div>

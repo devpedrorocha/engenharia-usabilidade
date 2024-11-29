@@ -1,0 +1,27 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import SimpleForm from "../components/SimpleForm";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Submissão de Trabalhos">
+  <div class="flex h-screen bg-white">
+    <Sidebar />
+
+    <!-- Main Content -->
+    <div class="w-full flex flex-col bg-white shadow-lg rounded-lg">
+      <div class="flex flex-col">
+        <div class="py-4 px-6 border-b">
+          <h1 class="text-4xl font-semibold text-blue-600">Submissão de Trabalhos</h1>
+        </div>
+        <div class="py-4 px-6 border-b">
+          <h2 class="text-3xl font-semibold text-slate-700">
+            Seminário UFSC 2024.2 - Blockchain e suas aplicabilidades
+          </h2>
+        </div>
+      </div>
+
+      <SimpleForm client:load />
+    </div>
+  </div>
+</Layout>
