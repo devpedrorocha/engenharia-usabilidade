@@ -7,9 +7,11 @@ import icon from 'astro-icon';
 
 import react from '@astrojs/react';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), icon(), react()],
+  integrations: [tailwind({
+    // Isso permite o override do base.css do Astro e aplicar layers de estilos do Tailwind
+    applyBaseStyles: false,
+  }), icon(), react()],
   site: 'https://devpedrorocha.github.io/engenharia-usabilidade/',
   base: '/engenharia-usabilidade/',
 });
